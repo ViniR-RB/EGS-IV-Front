@@ -8,7 +8,7 @@ class TodoHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('TodoHome'),
+        title: const Text('TodoHome'),
       ),
       body: const Center(
         child: Text('TodHome'),
