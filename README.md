@@ -1,16 +1,20 @@
-# front
+# ARQUITETURA
+# USECASE
+    - O Sistema deverá enviar um formulario de um todo (title,isCompleted)
+    - O Sistema deverá ser capaz de Exibir todos os Todos Enviados e com seus Estados
 
-A new Flutter project.
+# DESIGNER PATTERNS
+    - Repository : Chamar o DataSource e enviar a resposta do DataSource
+    - Adapter : Transformar um Objeto em Outro
+    - State: Pattern de Estado
+    - DataSource: Fazer a chamada Api
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+# PACKAGE
+    - Dio - Biblioteca de Requisição
+    - Mocktail - Biblioteca de Teste para Mockar
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# ASSETS
+    -Todos as fonts/imagesm devem está na raiz do projeto dentro de assets
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
