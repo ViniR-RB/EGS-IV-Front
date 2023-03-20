@@ -3,7 +3,7 @@ import 'package:front/app/todo/datasource/datasource.dart';
 import 'package:front/app/todo/model/todo_model.dart';
 
 abstract class TodoRepository {
-  Future<List<dynamic>> fetchTodos();
+  Future<List<TodoModel>> fetchTodos();
 }
 
 class TodoRepositoryImpl implements TodoRepository {
