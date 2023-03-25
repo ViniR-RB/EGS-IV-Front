@@ -14,7 +14,7 @@ class TodoStore extends ChangeNotifier {
 
   TodoStore(this._repository);
 
-  _emit(TodoState status) {
+  void _emit(TodoState status) {
     _state = status;
     notifyListeners();
   }

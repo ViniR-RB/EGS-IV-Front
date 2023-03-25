@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:front/app/todo/datasource/datasource.dart';
-
 import 'package:front/app/todo/repository/todo_repository.dart';
 import 'package:front/app/todo/store/todo_store.dart';
 
@@ -17,7 +16,6 @@ class TodoPage extends StatefulWidget {
 class _TodoPageState extends State<TodoPage> {
   final TodoStore _store =
       TodoStore(TodoRepositoryImpl(DioDataSourceImpl(Dio())));
-  late TodoState _state = _store.state;
 
   @override
   void initState() {
@@ -26,35 +24,37 @@ class _TodoPageState extends State<TodoPage> {
     super.initState();
   }
 
-  _listerner() {
-    _store.fetchTodos();
+  void _listerner() {
+    _store..fetchTodos()
 
-    _store.addListener(() {
-      print(_state);
+    ..addListener(() {
       setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget _body = Container();
+    Widget body = Container();
     if (_store.state is LoadingTodoState) {
-      _body = const Center(
+      body = const Center(
         child: CircularProgressIndicator.adaptive(),
       );
     } else if (_store.state is LoadedTodoState) {
-      _body = ListView.builder(
-          itemCount: _store.todo.length,
-          itemBuilder: (context, index) {
-            return CheckboxListTile(
-                title: Text(_store.todo[index].title),
-                value: _store.todo[index].isCompleted,
-                onChanged: null);
-          });
+      body = ListView.builder(
+        cacheExtent: 10,
+        itemCount: _store.todo.length,
+        itemBuilder: (context, index) {
+          return CheckboxListTile(
+            title: Text(_store.todo[index].title),
+            value: _store.todo[index].isCompleted,
+            onChanged: null,
+          );
+        },
+      );
     }
     return Scaffold(
-      appBar: AppBar(title: Text('Todo Home')),
-      body: _body,
+      appBar: AppBar(title: const Text('Todo Home')),
+      body: body,
     );
   }
 

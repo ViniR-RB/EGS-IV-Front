@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:front/app/todo/adapter/todo_adapter.dart';
 import 'package:front/app/todo/datasource/datasource.dart';
 import 'package:front/app/todo/model/todo_model.dart';
 import 'package:front/app/todo/repository/todo_repository.dart';
