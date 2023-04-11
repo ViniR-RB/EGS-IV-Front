@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:front/app/todo/datasource/datasource.dart';
 import 'package:mocktail/mocktail.dart';
@@ -9,9 +10,10 @@ void main() {
   late DataSource dataSource;
   late Dio dio;
 
-  setUp(() {
+  setUp(() async {
     dio = DioMock();
     dataSource = DioDataSourceImpl(dio);
+    await dotenv.load();
   });
   test('DataSource Should return List dynamic', () async {
     final response =

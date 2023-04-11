@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:front/app/core/configuration/configuration.dart';
 
 abstract class DataSource {
   Future<List<dynamic>> fetchTodo();
+  Future<List<dynamic>> postTodo(String title);
 }
 
 class DioDataSourceImpl implements DataSource {
@@ -11,8 +13,22 @@ class DioDataSourceImpl implements DataSource {
 
   @override
   Future<List<dynamic>> fetchTodo() async {
-    final response =
-        await dio.get('https://jsonplaceholder.typicode.com/todos');
+    final response = await dio.get('${ConfigurateEnv.baseUrl}/api/todo/');
     return response.data as List<dynamic>;
+  }
+
+  @override
+  Future<List<dynamic>> postTodo(String title) async {
+    final response = await dio.post(
+      '${ConfigurateEnv.baseUrl}/api/todo/',
+      data: {
+        'title': title,
+      },
+      options: Options(
+        contentType: Headers.jsonContentType,
+        responseType: ResponseType.json,
+      ),
+    );
+    return [response.data];
   }
 }
