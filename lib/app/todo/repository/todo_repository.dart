@@ -4,6 +4,7 @@ import 'package:front/app/todo/model/todo_model.dart';
 
 abstract class TodoRepository {
   Future<List<TodoModel>> fetchTodos();
+  Future<List<dynamic>> postTodos(String title);
 }
 
 class TodoRepositoryImpl implements TodoRepository {
@@ -16,5 +17,12 @@ class TodoRepositoryImpl implements TodoRepository {
     final response = await _dataSource.fetchTodo();
     final todo = response.map(TodoAdapter.toModel).toList();
     return todo;
+  }
+
+  @override
+  Future<List<dynamic>> postTodos(String title) async {
+    final response = await _dataSource.postTodo(title);
+
+    return response;
   }
 }
