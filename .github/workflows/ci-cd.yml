@@ -1,14 +1,14 @@
 name: CI
 
-on:
+on: 
   push:
     branches:
-      - "main"
-      - "dev"
+      - main
+      - dev
   pull_request:
     branches:
-      - "main"
-      - "dev"
+      - main
+      - dev
 
 jobs:
   flutter_test:
