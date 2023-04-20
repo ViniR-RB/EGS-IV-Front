@@ -13,14 +13,14 @@ class DioDataSourceImpl implements DataSource {
 
   @override
   Future<List<dynamic>> fetchTodo() async {
-    final response = await dio.get('${ConfigurateEnv.baseUrl}/api/todo/');
+    final response = await dio.get('${ConfigurateEnv.baseUrl}/todos/');
     return response.data as List<dynamic>;
   }
 
   @override
   Future<List<dynamic>> postTodo(String title) async {
     final response = await dio.post(
-      '${ConfigurateEnv.baseUrl}/api/todo/',
+      '${ConfigurateEnv.baseUrl}/todo/',
       data: {
         'title': title,
       },

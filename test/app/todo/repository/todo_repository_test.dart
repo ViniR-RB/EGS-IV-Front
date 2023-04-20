@@ -23,5 +23,5 @@ void main() {
 }
 
 List<dynamic> jsonResponse = [
-  {'id': 1, 'title': 'Lore dsuan', 'isCompleted': true}
+  {'id': 1, 'title': 'Lore dsuan', 'completed': true}
 ];

@@ -44,8 +44,7 @@ class _TodoPageState extends State<TodoPage> {
       body = Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            height: 300,
+          Expanded(
             child: ListView.builder(
               cacheExtent: 10,
               itemCount: _store.todo.length,
@@ -58,28 +57,6 @@ class _TodoPageState extends State<TodoPage> {
               },
             ),
           ),
-          Container(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 150,
-                  child: TextFormField(
-                    decoration:
-                        const InputDecoration(border: OutlineInputBorder()),
-                    controller: _inputController,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () async {
-                    await _store.postTodos(_inputController.text);
-                  },
-                  child: const Text('Adicionar Todo'),
-                )
-              ],
-            ),
-          )
         ],
       );
     }
