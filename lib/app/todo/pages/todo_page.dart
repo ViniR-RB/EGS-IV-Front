@@ -16,7 +16,6 @@ class TodoPage extends StatefulWidget {
 class _TodoPageState extends State<TodoPage> {
   final TodoStore _store =
       TodoStore(TodoRepositoryImpl(DioDataSourceImpl(Dio())));
-  final TextEditingController _inputController = TextEditingController();
 
   @override
   void initState() {
