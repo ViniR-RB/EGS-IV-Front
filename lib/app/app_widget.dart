@@ -10,6 +10,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       home: const TodoPage(),
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
       ),

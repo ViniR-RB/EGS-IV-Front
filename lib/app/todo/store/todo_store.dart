@@ -24,4 +24,9 @@ class TodoStore extends ChangeNotifier {
     _todo = await _repository.fetchTodos();
     _emit(LoadedTodoState());
   }
+
+  Future<void> postTodos(String title) async {
+    await _repository.postTodos(title);
+    await fetchTodos();
+  }
 }

@@ -9,7 +9,7 @@ void main() {
   late DataSource dataSource;
   late Dio dio;
 
-  setUp(() {
+  setUp(() async {
     dio = DioMock();
     dataSource = DioDataSourceImpl(dio);
   });
