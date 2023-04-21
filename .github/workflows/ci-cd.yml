@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -33,6 +33,6 @@ jobs:
           name: test-results
           path: test-results.json
           reporter: flutter-json
-      - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
+      - uses: VeryGoodOpenSource/very_good_coverage@v2.1.0
         with:
           min_coverage: 80
